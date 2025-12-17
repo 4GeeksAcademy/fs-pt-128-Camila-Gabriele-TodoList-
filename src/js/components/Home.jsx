@@ -39,7 +39,7 @@ const Home = () => {
 						<div key={index}>
 							<p>✔️{lista}</p>
 							<button onClick={() => eliminarCosas(index)}>
-								🗑️ Eliminar
+								❌ 
 							</button>
 						</div>
 					))
