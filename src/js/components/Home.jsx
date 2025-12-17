@@ -1,27 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-            
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
+	const [listaCosas, setListaCosas] = useState([])
+	const [cosas, setCosas] = useState("")
+
+	const agregarCosa = () => {
+		if (cosas.trim() == "") {
+			alert("Hay campos sin completar")
+		}
+		setListaCosas([...listaCosas, cosas])
+		setCosas("")
+	}
+	const enviar = (e) => {
+		if (e.key == "Enter") {
+			agregarCosa()
+		}
+	}
+	const eliminarCosas = (indexAEliminar) => {
+		const nuevaLista = listaCosas.filter (listaCosas,index => index !== indexAEliminar);
+		setListaCosas(nuevaLista);
+
+	}
+
+	return (
+		<>
+			<div className="input-group p-3">
+				<input value={cosas} onChange={(e) => setCosas(e.target.value)} type="text" class="form-control" placeholder="Solo lo necesario" onKeyUp={enviar} />
+				<button className="btn btn-dark" onClick={agregarCosa}> Agregar </button>
+			</div>
+			<div className="container">
+				{
+					listaCosas.map((lista, index) => (
+						<div key={index}>
+							<p>✔️{lista}</p>
+							<button onClick={() => eliminarCosas(index)}>
+								🗑️ Eliminar
+							</button>
+						</div>
+					))
+				}
+			</div>
+
+
+		</>
 	);
 };
 
