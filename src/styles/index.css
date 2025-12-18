@@ -9,7 +9,7 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=BBH+Bartle&family=Bitcount+Grid+Single:wght@100..900&family=Cookie&family=Lora:ital,wght@0,400..700;1,400..700&family=Mynerve&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Mono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=VT323&family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=BBH+Bartle&family=Bitcount+Grid+Single:wght@100..900&family=Cookie&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Mynerve&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Mono&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=VT323&family=Yellowtail&display=swap');
 
 * {
     margin: 0;
@@ -23,7 +23,28 @@ body {
     background-size: cover;
 }
 
- .input-group{
+.input-group {
     width: 1000px;
     margin: auto;
- }
+}
+
+.lista {
+    width: 1000px;
+    margin: auto;
+}
+
+.form-control:focus {
+    border-color: #000000;
+    box-shadow: none;
+}
+
+.borrar{
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+.lista:hover .borrar {
+    opacity: 1;
+    pointer-events: auto;
+}
